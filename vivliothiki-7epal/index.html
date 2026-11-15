@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="el" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Βιβλιοθήκη · 7ο ΕΠΑΛ Λάρισας</title>
+<meta name="description" content="Η σχολική βιβλιοθήκη του 7ου ΕΠΑΛ Λάρισας: ωράριο λειτουργίας και δανεισμού, κανόνες, αναζήτηση σε 1.922 τίτλους, δράσεις και επικοινωνία.">
+<meta name="theme-color" content="#f5c400">
+<meta name="color-scheme" content="light dark">
+<meta property="og:title" content="Βιβλιοθήκη · 7ο ΕΠΑΛ Λάρισας">
+<meta property="og:description" content="Ωράριο, κανόνες δανεισμού, κατάλογος 1.922 βιβλίων, δράσεις και επικοινωνία της σχολικής βιβλιοθήκης του 7ου ΕΠΑΛ Λάρισας.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="el_GR">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23f5c400'/%3E%3Ctext x='16' y='23' font-size='19' font-weight='700' text-anchor='middle' font-family='sans-serif' fill='%2314202b'%3E7%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+<script>
+  (function () {
+    var d = document.documentElement;
+    var stored = null;
+    try { stored = localStorage.getItem("vivliothiki-theme"); } catch (e) {}
+    var dark = stored === "dark" || (stored !== "light" && window.matchMedia("(prefers-color-scheme: dark)").matches);
+    d.dataset.theme = dark ? "dark" : "light";
+    d.classList.add("js");
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      d.classList.add("no-motion");
+      d.classList.add("intro-seen");
+    }
+    try {
+      if (sessionStorage.getItem("vivliothiki-intro")) d.classList.add("intro-seen");
+    } catch (e) {}
+    /* If the interaction script never arrives, drop the JS-only styles so the
+       page is never left hidden behind reveals or the intro curtain. */
+    window.setTimeout(function () {
+      if (!d.classList.contains("motion-ready")) d.classList.remove("js");
+    }, 3000);
+  })();
+</script>
+</head>
+<body>
+<div id="intro" aria-hidden="true">
+  <div class="intro-box">
+    <span class="intro-mark">7</span>
+    <strong>Βιβλιοθήκη</strong>
+    <small>7ο ΕΠΑΛ Λάρισας</small>
+    <span class="intro-ruler"><i></i></span>
+  </div>
+</div>
+<a class="skip" href="#main">Μετάβαση στο περιεχόμενο</a>
+<div id="progress" aria-hidden="true"></div>
+<div id="rail" aria-hidden="true"><i></i><b></b></div>
+<div id="glow" aria-hidden="true"></div>
+<div id="waves" aria-hidden="true"></div>
+
+<header id="topbar">
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <span class="brand-mark" aria-hidden="true">7</span>
+      <span class="brand-text">
+        <strong>Βιβλιοθήκη</strong>
+        <small>7ο ΕΠΑΛ Λάρισας</small>
+      </span>
+      <span class="visually-hidden">— αρχή σελίδας</span>
+    </a>
+
+    <nav id="nav" aria-label="Κύρια πλοήγηση">
+      <a href="#orario">Ωράριο</a>
+      <a href="#katalogos">Κατάλογος</a>
+      <a href="#kanonismos">Κανόνες</a>
+      <a href="#syllogi">Συλλογή</a>
+      <a href="#drasis">Δράσεις</a>
+      <a href="#epikoinonia">Επικοινωνία</a>
+    </nav>
+
+    <div class="tools">
+      <a class="ib ib-catalog" href="#katalogos" aria-label="Κατάλογος βιβλίων" title="Κατάλογος βιβλίων">
+        <span aria-hidden="true">▤</span> <span class="ib-label">Κατάλογος</span>
+      </a>
+      <button id="theme" class="ib ib-icon" type="button" aria-label="Εναλλαγή φωτεινής και σκοτεινής εμφάνισης" aria-pressed="false">
+        <span id="themeIcon" aria-hidden="true">☾</span>
+      </button>
+      <button id="navToggle" class="ib ib-icon nav-toggle" type="button" aria-label="Άνοιγμα μενού" aria-expanded="false" aria-controls="nav">
+        <span aria-hidden="true">☰</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero wrap" id="top">
+    <span class="hero-sticker" aria-hidden="true"><b>14</b> ημέρες<br>δανεισμός</span>
+
+    <p class="sub rv">Σχολική βιβλιοθήκη · 7ο ΕΠΑΛ Λάρισας</p>
+
+    <h1 class="rv">Βιβλιοθήκη</h1>
+    <p class="hero-lead rv">
+      «Ένα βιβλίο είναι ένα παράθυρο στον κόσμο, μια πόρτα στην ψυχή.»
+      Χώρος ανάγνωσης, έρευνας και δανεισμού για όλη τη σχολική κοινότητα,
+      με τον κατάλογο των <strong><span data-catalog-count>1.922</span> βιβλίων</strong> της συλλογής αναζητήσιμο εδώ.
+    </p>
+
+    <div class="hero-actions rv">
+      <a class="chip chip-primary" href="#katalogos">Αναζήτηση στον κατάλογο</a>
+      <a class="chip" href="#orario">Δες το ωράριο</a>
+      <a class="chip chip-ghost" href="#kanonismos">Κανόνες δανεισμού</a>
+    </div>
+
+    <div class="now-card rv">
+      <div class="now">
+        <span id="clock" aria-live="off">--:--</span>
+        <span id="date">Φόρτωση ημερομηνίας…</span>
+      </div>
+      <p id="status" class="status"><span class="dot" aria-hidden="true"></span><span id="statusText">Έλεγχος ωραρίου…</span></p>
+    </div>
+
+    <div class="shelf rv" aria-hidden="true">
+      <div class="shelf-rail"></div>
+      <span class="spine" style="--w:26px;--h:66px;--c:var(--steel)"></span>
+      <span class="spine" style="--w:38px;--h:82px;--c:var(--tape)"></span>
+      <span class="spine" style="--w:22px;--h:58px;--c:var(--blue)"></span>
+      <span class="spine on" style="--w:46px;--h:92px;--c:var(--ink)"></span>
+      <span class="spine" style="--w:30px;--h:70px;--c:var(--tape)"></span>
+      <span class="spine" style="--w:24px;--h:62px;--c:var(--steel)"></span>
+      <span class="spine" style="--w:42px;--h:86px;--c:var(--blue)"></span>
+      <span class="spine" style="--w:20px;--h:54px;--c:var(--tape)"></span>
+      <span class="spine" style="--w:34px;--h:76px;--c:var(--ink)"></span>
+      <span class="spine" style="--w:28px;--h:64px;--c:var(--steel)"></span>
+    </div>
+  </section>
+
+  <div class="ticker" aria-hidden="true">
+    <div>
+      <span>Δανεισμός 14 ημερών</span><span>◆</span>
+      <span>Ησυχία &amp; σεβασμός στο υλικό</span><span>◆</span>
+      <span><span data-catalog-count>1.922</span> τίτλοι στον κατάλογο</span><span>◆</span>
+      <span>10 ώρες δανεισμού την εβδομάδα</span><span>◆</span>
+      <span>«Ένα βιβλίο είναι ένα παράθυρο στον κόσμο»</span><span>◆</span>
+      <span>Δανεισμός 14 ημερών</span><span>◆</span>
+      <span>Ησυχία &amp; σεβασμός στο υλικό</span><span>◆</span>
+      <span><span data-catalog-count>1.922</span> τίτλοι στον κατάλογο</span><span>◆</span>
+      <span>10 ώρες δανεισμού την εβδομάδα</span><span>◆</span>
+      <span>«Ένα βιβλίο είναι ένα παράθυρο στον κόσμο»</span><span>◆</span>
+    </div>
+  </div>
+
+  <section class="stats rv" aria-label="Η βιβλιοθήκη με μια ματιά">
+    <div><b data-catalog-count>1.922</b><span>τίτλοι</span></div>
+    <div><b>14</b><span>ημέρες δανεισμός</span></div>
+    <div><b>10</b><span>ώρες / εβδομάδα</span></div>
+    <div><b>4</b><span>υπεύθυνοι</span></div>
+  </section>
+
+  <section class="wrap panel rv" id="orario">
+    <h2>Ωράριο λειτουργίας</h2>
+    <p class="lead">
+      Ισχύει από <strong>12 Οκτωβρίου 2026</strong> για το σχολικό έτος 2026–2027.
+      Τις ώρες αυτές λειτουργούν ο δανεισμός και το αναγνωστήριο, με την ευθύνη
+      των εκπαιδευτικών της βιβλιοθήκης.
+    </p>
+
+    <div class="tabs" role="group" aria-label="Φίλτρο ημέρας">
+      <button class="chip tab act" type="button" data-day="all" aria-pressed="true">Όλες</button>
+      <button class="chip tab" type="button" data-day="1" aria-pressed="false">Δευτέρα</button>
+      <button class="chip tab" type="button" data-day="2" aria-pressed="false">Τρίτη</button>
+      <button class="chip tab" type="button" data-day="3" aria-pressed="false">Τετάρτη</button>
+      <button class="chip tab" type="button" data-day="4" aria-pressed="false">Πέμπτη</button>
+      <button class="chip tab" type="button" data-day="5" aria-pressed="false">Παρασκευή</button>
+    </div>
+
+    <div class="table-wrap">
+      <table id="schedule">
+        <caption>Εβδομαδιαίο ωράριο δανεισμού &amp; αναγνωστηρίου</caption>
+        <thead>
+          <tr>
+            <th scope="col">Ημέρα</th>
+            <th scope="col">Ώρα</th>
+            <th scope="col">Υπεύθυνος / Υπεύθυνη</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr data-day="1" data-start="545" data-end="590">
+            <th scope="row">Δευτέρα</th>
+            <td>2η ώρα · 09:05–09:50</td>
+            <td>Ζιούλης Κωνσταντίνος</td>
+          </tr>
+          <tr data-day="1" data-start="600" data-end="645">
+            <th scope="row">Δευτέρα</th>
+            <td>3η ώρα · 10:00–10:45</td>
+            <td>Ζιούλης Κωνσταντίνος</td>
+          </tr>
+          <tr data-day="1" data-start="650" data-end="695">
+            <th scope="row">Δευτέρα</th>
+            <td>4η ώρα · 10:50–11:35</td>
+            <td>Σκλιβάνου Στέλλα</td>
+          </tr>
+          <tr data-day="1" data-start="705" data-end="745">
+            <th scope="row">Δευτέρα</th>
+            <td>5η ώρα · 11:45–12:25</td>
+            <td>Αρβανιτίδου Σταυρούλα</td>
+          </tr>
+          <tr data-day="2" class="is-empty">
+            <th scope="row">Τρίτη</th>
+            <td>—</td>
+            <td>Δεν προβλέπεται ώρα δανεισμού</td>
+          </tr>
+          <tr data-day="3" data-start="600" data-end="645">
+            <th scope="row">Τετάρτη</th>
+            <td>3η ώρα · 10:00–10:45</td>
+            <td>Σβόλη Μαρία</td>
+          </tr>
+          <tr data-day="3" data-start="705" data-end="745">
+            <th scope="row">Τετάρτη</th>
+            <td>5η ώρα · 11:45–12:25</td>
+            <td>Αρβανιτίδου Σταυρούλα</td>
+          </tr>
+          <tr data-day="4" data-start="545" data-end="590">
+            <th scope="row">Πέμπτη</th>
+            <td>2η ώρα · 09:05–09:50</td>
+            <td>Σβόλη Μαρία</td>
+          </tr>
+          <tr data-day="5" data-start="545" data-end="590">
+            <th scope="row">Παρασκευή</th>
+            <td>2η ώρα · 09:05–09:50</td>
+            <td>Σβόλη Μαρία &amp; Σκλιβάνου Στέλλα</td>
+          </tr>
+          <tr data-day="5" data-start="650" data-end="695">
+            <th scope="row">Παρασκευή</th>
+            <td>4η ώρα · 10:50–11:35</td>
+            <td>Ζιούλης Κωνσταντίνος</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="grid-2">
+      <div class="note-card">
+        <h3>Εκτός ωραρίου</h3>
+        <p>Μέλη της σχολικής κοινότητας μπορούν να χρησιμοποιούν τον χώρο και εκτός των τακτικών ωρών, κατόπιν συνεννόησης με τους υπεύθυνους εκπαιδευτικούς.</p>
+      </div>
+      <div class="note-card">
+        <h3>Αλλαγές στο πρόγραμμα</h3>
+        <p>Το ωράριο τροποποιείται ανάλογα με το ωρολόγιο πρόγραμμα που ισχύει κάθε περίοδο. Για επιβεβαίωση, ρωτήστε τους υπεύθυνους ή τη γραμματεία.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap panel rv" id="katalogos">
+    <h2>Κατάλογος βιβλίων</h2>
+    <p class="lead">
+      Ολόκληρη η συλλογή της βιβλιοθήκης — <strong><span data-catalog-count>1.922</span> τίτλοι</strong> — αναζητήσιμη
+      εδώ, χωρίς να φύγεις από τη σελίδα. Ψάξε με τίτλο, συγγραφέα ή εκδότη, ή περιόρισε
+      τα αποτελέσματα με θεματική κατηγορία.
+    </p>
+
+    <div class="catalog-search">
+      <label class="visually-hidden" for="bookQuery">Αναζήτηση στον κατάλογο</label>
+      <input
+        id="bookQuery"
+        type="search"
+        placeholder="Τίτλος, συγγραφέας, εκδότης…"
+        autocomplete="off"
+        spellcheck="false"
+      >
+      <button id="bookClear" class="chip chip-quiet" type="button" hidden>Καθαρισμός</button>
+    </div>
+
+    <div class="cat-chips" id="catChips" role="group" aria-label="Θεματικές κατηγορίες">
+      <button class="cat-chip act" type="button" data-cat="all" aria-pressed="true">Όλα</button>
+    </div>
+
+    <p class="catalog-meta">
+      <span id="bookCount" aria-live="polite">Φόρτωση καταλόγου…</span>
+      <span id="bookShown"></span>
+    </p>
+
+    <ol class="catalog-list" id="bookList"></ol>
+    <p class="catalog-empty" id="bookEmpty" hidden>
+      Δεν βρέθηκε βιβλίο με αυτά τα κριτήρια. Δοκίμασε μικρότερη λέξη ή άλλη κατηγορία.
+    </p>
+
+    <div class="catalog-more">
+      <button id="bookMore" class="chip" type="button" hidden>Εμφάνιση περισσότερων</button>
+    </div>
+
+    <div class="source source-row">
+      <span>
+        Ο κατάλογος είναι αντίγραφο των εγγραφών της βιβλιοθήκης στο myLib,
+        ενημερωμένος στις <time datetime="2026-11-15">15 Νοεμβρίου 2026</time>.
+        Δεν εμφανίζει διαθεσιμότητα — για δανεισμό ρώτησε τους υπεύθυνους.
+      </span>
+      <a href="#oroi">Όροι χρήσης</a>
+    </div>
+  </section>
+
+  <section class="wrap panel rv" id="kanonismos">
+    <h2>Κανόνες δανεισμού</h2>
+    <p class="lead">
+      Όλοι οι χρήστες μπορούν να αναζητούν μόνοι τους το υλικό στα ράφια. Το υλικό
+      διατίθεται για διάβασμα στον χώρο και για δανεισμό, με λίγους απλούς κανόνες
+      που κρατούν τη βιβλιοθήκη λειτουργική για όλους.
+    </p>
+
+    <details class="rule" open>
+      <summary><span class="num">01</span> Αναζήτηση στα ράφια</summary>
+      <p>Οι χρήστες μπορούν να αναζητήσουν μόνοι τους το υλικό που τους ενδιαφέρει στα ράφια. Τα βιβλία δεν επιστρέφονται στα ράφια από τους χρήστες, αλλά αφήνονται στον χώρο που υποδεικνύει ο υπεύθυνος της βιβλιοθήκης.</p>
+    </details>
+
+    <details class="rule">
+      <summary><span class="num">02</span> Ησυχία και σεβασμός στον χώρο</summary>
+      <p>Μέσα στους χώρους της βιβλιοθήκης τηρείται ησυχία και δεν επιτρέπεται η κατανάλωση φαγητών και ροφημάτων, εκτός από νερό.</p>
+    </details>
+
+    <details class="rule">
+      <summary><span class="num">03</span> Σεβασμός στο υλικό</summary>
+      <p>Απαραίτητος είναι ο σεβασμός στο υλικό της βιβλιοθήκης: υπολογιστές, έπιπλα, βιβλία κ.τ.λ.</p>
+    </details>
+
+    <details class="rule">
+      <summary><span class="num">04</span> Τι δανείζεται και τι όχι</summary>
+      <p>Η βιβλιοθήκη είναι δανειστική για όλο το υλικό της, <strong>εκτός</strong> από το υλικό των σχολικών προγραμμάτων, τα CD, τις εγκυκλοπαίδειες, τα λεξικά και τα περιοδικά, που δίνονται μόνο για εσωτερικό δανεισμό.</p>
+    </details>
+
+    <details class="rule">
+      <summary><span class="num">05</span> Διάρκεια δανεισμού</summary>
+      <p>Όλα τα μέλη μπορούν να δανειστούν ένα βιβλίο για <strong>14 ημέρες</strong>.</p>
+    </details>
+
+    <details class="rule">
+      <summary><span class="num">06</span> Φροντίδα των βιβλίων</summary>
+      <p>Οι χρήστες είναι υπεύθυνοι για τα βιβλία που χρησιμοποιούν. Υπογραμμίσεις ή σημειώσεις στα βιβλία δεν επιτρέπονται.</p>
+    </details>
+
+    <details class="rule">
+      <summary><span class="num">07</span> Απώλεια ή φθορά</summary>
+      <p>Το μέλος που χάνει ή επιστρέφει υλικό κατεστραμμένο υποχρεούται να το αντικαταστήσει.</p>
+    </details>
+
+    <details class="rule">
+      <summary><span class="num">08</span> Ληξιπρόθεσμα βιβλία</summary>
+      <p>Όλοι οι χρήστες που είναι χρεωμένοι με ληξιπρόθεσμα βιβλία δεν έχουν το δικαίωμα άλλου δανεισμού.</p>
+    </details>
+
+    <details class="rule">
+      <summary><span class="num">09</span> Προσωπικός δανεισμός</summary>
+      <p>Ο καθένας δανείζεται για τον εαυτό του και επιστρέφει το βιβλίο ο ίδιος, εκτός αν οι συνθήκες δεν το επιτρέπουν και έχει συμφωνηθεί εξαρχής με τον/την υπεύθυνο/η άλλος τρόπος συναλλαγής.</p>
+    </details>
+
+    <details class="rule">
+      <summary><span class="num">10</span> Διαδικασία δανεισμού</summary>
+      <p>Δεν επιτρέπεται η εξαγωγή βιβλίου ή άλλου υλικού, αν δεν έχει περάσει από τη διαδικασία δανεισμού από τον/την υπεύθυνο/η της βιβλιοθήκης.</p>
+    </details>
+
+    <div class="steps" aria-label="Δανεισμός σε τρία βήματα">
+      <div class="step">
+        <b>1</b>
+        <h3>Βρες το βιβλίο</h3>
+        <p>Στα ράφια ή στον ψηφιακό κατάλογο myLib.</p>
+      </div>
+      <div class="step">
+        <b>2</b>
+        <h3>Πήγαινε στον υπεύθυνο</h3>
+        <p>Κατά τις ώρες δανεισμού, με την καρτέλα μέλους σου.</p>
+      </div>
+      <div class="step">
+        <b>3</b>
+        <h3>Επίστρεψέ το σε 14 ημέρες</h3>
+        <p>Στο ίδιο σημείο, χωρίς σημειώσεις ή φθορές.</p>
+      </div>
+    </div>
+
+    <p class="source">
+      Πηγή: <a href="https://7epal-laris.lar.sch.gr/wp-content/uploads/2026/09/7%CE%BF-%CE%95%CE%A0%CE%91%CE%9B-%CE%9B%CE%91%CE%A1%CE%99%CE%A3%CE%91%CE%A3-%CE%9A%CE%91%CE%9D%CE%9F%CE%9D%CE%99%CE%A3%CE%9C%CE%9F%CE%A3-%CE%A3%CE%A7%CE%9F%CE%9B%CE%99%CE%9A%CE%97%CE%A3-%CE%92%CE%99%CE%92%CE%9B%CE%99%CE%9F%CE%98%CE%97%CE%9A%CE%97%CE%A3-%CE%A3%CE%A7%CE%9F%CE%9B%CE%99%CE%9A%CE%9F-%CE%95%CE%A4%CE%9F%CE%A3-2026-2027-2.pdf" target="_blank" rel="noopener">Κανονισμός Σχολικής Βιβλιοθήκης 2026–2027 (PDF)</a>
+      · <a href="#oroi">Συμφωνία χρήστη</a>
+    </p>
+  </section>
+
+  <section class="wrap panel rv" id="syllogi">
+    <h2>Η συλλογή</h2>
+    <p class="lead">
+      Λογοτεχνία, βιβλία γνώσεων και υλικό για τις ανάγκες των μαθημάτων, εμπλουτισμένο
+      και με δωρεές φορέων της πόλης. Η συλλογή είναι καταγεγραμμένη και οργανωμένη
+      ψηφιακά, ώστε η αναζήτηση τίτλων να γίνεται εύκολα.
+    </p>
+
+    <div class="cards">
+      <article class="card">
+        <small>Λογοτεχνία</small>
+        <h3>Μυθιστορήματα &amp; διηγήματα</h3>
+        <p>Ελληνική και μεταφρασμένη λογοτεχνία για εφήβους και ενήλικες αναγνώστες.</p>
+      </article>
+      <article class="card">
+        <small>Γνώσεις</small>
+        <h3>Επιστήμες &amp; ιστορία</h3>
+        <p>Βιβλία γνώσεων, ιστορίας και τεχνολογίας που στηρίζουν την εκπαιδευτική διαδικασία.</p>
+      </article>
+      <article class="card">
+        <small>Αναφοράς</small>
+        <h3>Εγκυκλοπαίδειες &amp; λεξικά</h3>
+        <p>Διαθέσιμα μόνο για εσωτερικό δανεισμό, μέσα στον χώρο της βιβλιοθήκης.</p>
+      </article>
+      <article class="card">
+        <small>Περιοδικά &amp; πολυμέσα</small>
+        <h3>Περιοδικά και CD</h3>
+        <p>Υλικό που διατίθεται για ανάγνωση και χρήση στον χώρο, όχι για κατ’ οίκον δανεισμό.</p>
+      </article>
+    </div>
+
+    <div class="callout">
+      <div>
+        <h3>Ο κατάλογος, εδώ στη σελίδα</h3>
+        <p>
+          Δεν χρειάζεται να ανοίξεις άλλη υπηρεσία: οι <strong><span data-catalog-count>1.922</span> τίτλοι</strong>
+          της βιβλιοθήκης είναι καταχωρισμένοι στον κατάλογο αυτής της σελίδας, με
+          ταξιθετικό αριθμό για να τους βρεις στο ράφι.
+        </p>
+      </div>
+      <a class="chip chip-primary" href="#katalogos">Άνοιγμα καταλόγου</a>
+    </div>
+  </section>
+
+  <section class="wrap panel rv" id="drasis">
+    <h2>Δράσεις &amp; νέα</h2>
+    <p class="lead">
+      Η βιβλιοθήκη δεν είναι μόνο ράφια: φιλοξενεί εκδηλώσεις, δράσεις φιλαναγνωσίας
+      και συνεργασίες με φορείς της Λάρισας.
+    </p>
+
+    <ul class="news">
+      <li>
+        <time datetime="2026-11-07">7 Νοεμβρίου 2026</time>
+        <div>
+          <b>Μια αξιόλογη προσφορά γνώσης και πολιτισμού</b>
+          <p>Νέα βιβλία προστέθηκαν στη συλλογή, ενισχύοντας το εκπαιδευτικό και πολιτιστικό απόθεμα για τη σχολική κοινότητα.</p>
+          <a class="news-link" href="https://7epal-laris.lar.sch.gr/%ce%bc%ce%b9%ce%b1-%ce%b1%ce%be%ce%b9%cf%8c%ce%bb%ce%bf%ce%b3%ce%b7-%cf%80%cf%81%ce%bf%cf%83%cf%86%ce%bf%cf%81%ce%ac-%ce%b3%ce%bd%cf%8e%cf%83%ce%b7%cf%82-%ce%ba%ce%b1%ce%b9-%cf%80%ce%bf%ce%bb%ce%b9/" target="_blank" rel="noopener">Διαβάστε στην ιστοσελίδα του σχολείου&nbsp;↗</a>
+        </div>
+      </li>
+      <li>
+        <time datetime="2026-06-24">24 Ιουνίου 2026</time>
+        <div>
+          <b>Δωρεά βιβλίων από τη Δημοτική Βιβλιοθήκη Λάρισας</b>
+          <p>Η Δημοτική Βιβλιοθήκη Λάρισας – «Χατζηγιάννειο» Πνευματικό Κέντρο ενίσχυσε τη σχολική βιβλιοθήκη με νέους τίτλους.</p>
+          <a class="news-link" href="https://7epal-laris.lar.sch.gr/%ce%b4%cf%89%cf%81%ce%b5%ce%ac-%ce%b2%ce%b9%ce%b2%ce%bb%ce%af%cf%89%ce%bd-%ce%b1%cf%80%cf%8c-%cf%84%ce%b7-%ce%b4%ce%b7%ce%bc%ce%bf%cf%84%ce%b9%ce%ba%ce%ae-%ce%b2%ce%b9%ce%b2%ce%bb%ce%b9%ce%bf%ce%b8/" target="_blank" rel="noopener">Διαβάστε στην ιστοσελίδα του σχολείου&nbsp;↗</a>
+        </div>
+      </li>
+      <li>
+        <time datetime="2026-05-20">20 Μαΐου 2026</time>
+        <div>
+          <b>Η παλιά γενιά εκπαιδευτικών μοιράζεται εμπειρία</b>
+          <p>Συνάντηση ενδοσχολικής επιμόρφωσης πραγματοποιήθηκε στον χώρο της βιβλιοθήκης, με μέντορες έμπειρους εκπαιδευτικούς.</p>
+          <a class="news-link" href="https://7epal-laris.lar.sch.gr/%ce%b7-%cf%80%ce%b1%ce%bb%ce%b9%ce%ac-%ce%b3%ce%b5%ce%bd%ce%b9%ce%ac-%ce%b5%ce%ba%cf%80%ce%b1%ce%b9%ce%b4%ce%b5%cf%85%cf%84%ce%b9%ce%ba%cf%8e%ce%bd-%cf%84%ce%bf%cf%85-7%ce%bf%cf%85-%ce%b5%cf%80%ce%b1/" target="_blank" rel="noopener">Διαβάστε στην ιστοσελίδα του σχολείου&nbsp;↗</a>
+        </div>
+      </li>
+      <li>
+        <time datetime="2026-05-10">10 Μαΐου 2026</time>
+        <div>
+          <b>Δραστηριότητα για την Ημέρα Βιβλίου και Φιλαναγνωσίας</b>
+          <p>Μαθητές και εκπαιδευτικοί συμμετείχαν σε δράσεις που καλλιεργούν την αγάπη για το διάβασμα.</p>
+          <a class="news-link" href="https://7epal-laris.lar.sch.gr/%ce%b4%cf%81%ce%b1%cf%83%cf%84%ce%b7%cf%81%ce%b9%cf%8c%cf%84%ce%b7%cf%84%ce%b1-%cf%83%cf%84%ce%bf-7%ce%bf-%ce%b5%cf%80%ce%b1%ce%bb-%ce%bb%ce%ac%cf%81%ce%b9%cf%83%ce%b1%cf%82-%ce%b3%ce%b9%ce%b1-%cf%84%ce%bf/" target="_blank" rel="noopener">Διαβάστε στην ιστοσελίδα του σχολείου&nbsp;↗</a>
+        </div>
+      </li>
+      <li>
+        <time datetime="2026-04-22">22–23 Απριλίου 2026</time>
+        <div>
+          <b>Διήμερη εκδήλωση για την Παγκόσμια Ημέρα Βιβλίου</b>
+          <p>Στο αμφιθέατρο του σχολείου, με εισηγήτριες τις υπεύθυνες της βιβλιοθήκης Μαρία Σβόλη και Σταυρούλα Αρβανιτίδου και παρουσίαση της ψηφιακής οργάνωσης μέσω myLib. Την αφίσα ζωγράφισε η μαθήτρια Όλγα Ντρογγούλη.</p>
+          <a class="news-link" href="https://www.larissapress.gr/2026/04/25/diimeri-ekdilosi-gia-tin-pagkosmia-imera-vivliou-sto-7o-epal-larisas/" target="_blank" rel="noopener">Διαβάστε το δημοσίευμα ↗</a>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <section class="wrap panel rv" id="epikoinonia">
+    <h2>Επικοινωνία</h2>
+    <p class="lead">Για δανεισμό, επιστροφές ή επίσκεψη στον χώρο, απευθυνθείτε στους υπεύθυνους της βιβλιοθήκης.</p>
+
+    <div class="contact-grid">
+      <div class="card card-contact">
+        <small>Υπεύθυνοι βιβλιοθήκης</small>
+        <ul class="people">
+          <li>Σβόλη Μαρία</li>
+          <li>Αρβανιτίδου Σταυρούλα</li>
+          <li>Σκλιβάνου Στέλλα</li>
+          <li>Ζιούλης Κωνσταντίνος</li>
+        </ul>
+      </div>
+
+      <div class="card card-contact">
+        <small>Σχολείο</small>
+        <address>
+          7ο ΕΠΑΛ Λάρισας<br>
+          Δρόση – Παιωνίου<br>
+          41335 Λάρισα
+        </address>
+        <p class="contact-line"><a href="tel:+302410670290">241 067 0290</a></p>
+        <p class="contact-line"><a href="mailto:mail@7epal-laris.lar.sch.gr">mail@7epal-laris.lar.sch.gr</a></p>
+        <p class="contact-line"><a href="mailto:grammateia@7epal-laris.lar.sch.gr">grammateia@7epal-laris.lar.sch.gr</a></p>
+      </div>
+
+      <div class="card card-contact">
+        <small>Το σχολείο online</small>
+        <p>Ανακοινώσεις, πρόγραμμα και δράσεις του 7ου ΕΠΑΛ Λάρισας.</p>
+        <a class="chip chip-site" href="https://7o-epal-project.vercel.app/" target="_blank" rel="noopener">
+          <span class="site-dot" aria-hidden="true"></span>
+          PROJECT 7ο ↗
+        </a>
+        <p class="contact-line"><a href="https://7epal-laris.lar.sch.gr" target="_blank" rel="noopener">7epal-laris.lar.sch.gr</a></p>
+        <p class="contact-line"><a href="https://www.google.com/maps/search/?api=1&amp;query=7%CE%BF+%CE%95%CE%A0%CE%91%CE%9B+%CE%9B%CE%AC%CF%81%CE%B9%CF%83%CE%B1%CF%82" target="_blank" rel="noopener">Οδηγίες χάρτη</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap panel rv" id="oroi">
+    <h2>Όροι χρήσης &amp; συμφωνία χρήστη</h2>
+    <p class="lead">
+      Η χρήση της σελίδας και της βιβλιοθήκης διέπεται από τους παρακάτω όρους.
+      Διαβάζοντάς τους ξέρεις τι μπορείς να περιμένεις από εμάς και τι περιμένουμε από εσένα.
+      <span class="terms-date">Τελευταία ενημέρωση: 15 Νοεμβρίου 2026.</span>
+    </p>
+
+    <div class="terms-grid">
+      <article class="term-card">
+        <h3><span class="term-num">Α</span> Όροι χρήσης της σελίδας</h3>
+        <ol>
+          <li>Η σελίδα τηρείται από το 7ο ΕΠΑΛ Λάρισας και έχει ενημερωτικό χαρακτήρα για τη σχολική βιβλιοθήκη. Δεν αποτελεί επίσημη υπηρεσία δανεισμού.</li>
+          <li>Ο κατάλογος είναι αντίγραφο των εγγραφών της βιβλιοθήκης στο myLib, όπως ήταν στις 15/11/2026. Δεν εγγυάται διαθεσιμότητα ή τρέχουσα κατάσταση δανεισμού· για επιβεβαίωση ρώτησε τους υπεύθυνους.</li>
+          <li>Τα κείμενα, η σχεδίαση και το λογότυπο ανήκουν στο σχολείο ή στους δημιουργούς τους. Επιτρέπεται η αναπαραγωγή για εκπαιδευτική, μη εμπορική χρήση, με αναφορά στην πηγή.</li>
+          <li>Οι σύνδεσμοι προς άλλους ιστότοπους (σχολείο, χάρτης, δημοσιεύματα) οδηγούν σε υπηρεσίες τρίτων, που έχουν δικούς τους όρους και πολιτική δεδομένων.</li>
+          <li>Καταβάλλεται προσπάθεια για ακριβή στοιχεία, χωρίς εγγύηση πληρότητας. Η σελίδα μπορεί να αλλάξει ή να μη είναι προσωρινά διαθέσιμη.</li>
+          <li>Απαγορεύεται η αυτοματοποιημένη μαζική αντιγραφή που επιβαρύνει την υπηρεσία ή παραβιάζει δικαιώματα τρίτων.</li>
+        </ol>
+      </article>
+
+      <article class="term-card">
+        <h3><span class="term-num">Β</span> Συμφωνία χρήστη βιβλιοθήκης</h3>
+        <ol>
+          <li>Μέλος γίνεται κάθε μαθητής και μαθήτρια, καθώς και κάθε εκπαιδευτικός του σχολείου, με εγγραφή στους υπεύθυνους της βιβλιοθήκης.</li>
+          <li>Κάθε μέλος δανείζεται <strong>ένα βιβλίο για 14 ημέρες</strong> και το επιστρέφει το ίδιο, εκτός αν έχει συμφωνηθεί διαφορετικά από την αρχή.</li>
+          <li>Το μέλος είναι υπεύθυνο για το υλικό που δανείζεται: δεν επιτρέπονται υπογραμμίσεις ή σημειώσεις, και σε απώλεια ή φθορά το υλικό αντικαθίσταται.</li>
+          <li>Όσο υπάρχει ληξιπρόθεσμο υλικό, δεν επιτρέπεται νέος δανεισμός.</li>
+          <li>CD, εγκυκλοπαίδειες, λεξικά, περιοδικά και υλικό σχολικών προγραμμάτων διατίθενται μόνο για χρήση στον χώρο.</li>
+          <li>Στη βιβλιοθήκη τηρείται ησυχία και σεβασμός σε βιβλία, υπολογιστές και έπιπλα. Δεν επιτρέπονται φαγητά και ροφήματα, εκτός από νερό.</li>
+          <li>Τα βιβλία δεν επιστρέφονται στα ράφια από τους χρήστες, αλλά αφήνονται στο σημείο που υποδεικνύει ο υπεύθυνος. Χρήση εκτός ωραρίου γίνεται κατόπιν συνεννόησης.</li>
+          <li>Η χρήση της βιβλιοθήκης και του καταλόγου συνεπάγεται αποδοχή της παρούσας συμφωνίας και του <a href="https://7epal-laris.lar.sch.gr/wp-content/uploads/2026/09/7%CE%BF-%CE%95%CE%A0%CE%91%CE%9B-%CE%9B%CE%91%CE%A1%CE%99%CE%A3%CE%91%CE%A3-%CE%9A%CE%91%CE%9D%CE%9F%CE%9D%CE%99%CE%A3%CE%9C%CE%9F%CE%A3-%CE%A3%CE%A7%CE%9F%CE%9B%CE%99%CE%9A%CE%97%CE%A3-%CE%92%CE%99%CE%92%CE%9B%CE%99%CE%9F%CE%98%CE%97%CE%9A%CE%97%CE%A3-%CE%A3%CE%A7%CE%9F%CE%9B%CE%99%CE%9A%CE%9F-%CE%95%CE%A4%CE%9F%CE%A3-2026-2027-2.pdf" target="_blank" rel="noopener">Κανονισμού 2026–2027</a>.</li>
+        </ol>
+      </article>
+
+      <article class="term-card">
+        <h3><span class="term-num">Γ</span> Προσωπικά δεδομένα</h3>
+        <ul>
+          <li>Η σελίδα δεν έχει λογαριασμούς, φόρμες εγγραφής ή cookies παρακολούθησης. Η προτίμηση φωτεινής/σκοτεινής εμφάνισης αποθηκεύεται μόνο τοπικά στον browser σου (<code>localStorage</code>) και σβήνεται με τα δεδομένα ιστοτόπου.</li>
+          <li>Η γραμματοσειρά φορτώνεται από την υπηρεσία Google Fonts, η οποία λαμβάνει τη διεύθυνση IP της σύνδεσης όπως κάθε εξωτερικός πόρος· δεν χρησιμοποιείται για παρακολούθηση ή διαφημίσεις.</li>
+          <li>Τα στοιχεία μελών (ονοματεπώνυμο, τάξη/τμήμα, δανεισμοί) τηρούνται από τη βιβλιοθήκη στο myLib του Πανελλήνιου Σχολικού Δικτύου, με ευθύνη του σχολείου, αποκλειστικά για τη λειτουργία του δανεισμού.</li>
+          <li>Η επικοινωνία γίνεται με τα email και το τηλέφωνο του σχολείου. Η σελίδα δεν στέλνει ενημερωτικά μηνύματα ούτε διαβιβάζει στοιχεία σε τρίτους.</li>
+          <li>Για πρόσβαση, διόρθωση ή διαγραφή στοιχείων μέλους απευθύνσου στη γραμματεία: <a href="mailto:grammateia@7epal-laris.lar.sch.gr">grammateia@7epal-laris.lar.sch.gr</a>, <a href="tel:+302410670290">241 067 0290</a>.</li>
+        </ul>
+      </article>
+    </div>
+
+    <p class="source">
+      Αποδέχεσαι τους όρους με τη χρήση της σελίδας. Ερωτήσεις;
+      <a href="mailto:mail@7epal-laris.lar.sch.gr">mail@7epal-laris.lar.sch.gr</a>
+    </p>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <a class="brand" href="#top">
+        <span class="brand-mark" aria-hidden="true">7</span>
+        <span class="brand-text">
+          <strong>Βιβλιοθήκη</strong>
+          <small>7ο ΕΠΑΛ Λάρισας</small>
+        </span>
+      </a>
+      <nav aria-label="Πλοήγηση υποσέλιδου">
+        <a href="#orario">Ωράριο</a>
+        <a href="#katalogos">Κατάλογος</a>
+        <a href="#kanonismos">Κανόνες</a>
+        <a href="#syllogi">Συλλογή</a>
+        <a href="#drasis">Δράσεις</a>
+        <a href="#epikoinonia">Επικοινωνία</a>
+        <a href="#oroi">Όροι</a>
+      </nav>
+    </div>
+    <p class="foot-note">
+      © <span id="year">2026</span> 7ο ΕΠΑΛ Λάρισας · Στοιχεία από την επίσημη ιστοσελίδα του σχολείου
+      και τον Κανονισμό Σχολικής Βιβλιοθήκης 2026–2027. Ο κατάλογος προέρχεται από το myLib
+      της βιβλιοθήκης. Σχεδιαστική γλώσσα εμπνευσμένη από το <a href="https://7o-epal-project.vercel.app" target="_blank" rel="noopener">PROJECT 7ο</a>.
+    </p>
+  </div>
+</footer>
+
+<button id="toTop" class="to-top" type="button" aria-label="Επιστροφή στην αρχή">↑</button>
+
+<script src="assets/app.js" defer></script>
+</body>
+</html>
